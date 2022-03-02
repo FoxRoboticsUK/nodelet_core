@@ -302,7 +302,10 @@ int main(int argc, char **argv) {
 
   if (command == "manager") {
     ros::init(argc, argv, "manager");
-    bond::Bond bond("nodelet_manager_bond", "nodelet_manager_id");
+    std::string bond_name; 
+    ros::NodeHandle nh;
+    nh.param<std::string>("bond_name",bond_name,"camera");
+    bond::Bond bond(bond_name+"_bond", bond_name+"_id");
     bond.start();
     nodelet::Loader n;
     ros::spin();

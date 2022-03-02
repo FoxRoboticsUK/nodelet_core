@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(nodelet)
 
+
+add_compile_options( -pg)
+
 ## Find catkin dependencies
 find_package(catkin REQUIRED
   bondcpp
